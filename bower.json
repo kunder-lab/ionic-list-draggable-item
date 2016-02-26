@@ -1,0 +1,24 @@
+{
+  "name": "ionic-list-draggable-item",
+  "authors": [
+    "arturokunder"
+  ],
+  "description": "Custom implementation of ionic list to support draggable items without pressing \"order\" button",
+  "main": [
+    "js/draggableItemList.min.js"
+  ],
+  "keywords": [
+    "ionic",
+    "ion-list",
+    "draggable"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kunder-lab/ionic-list-draggable-item",
+  "ignore": [
+    "**/.*",
+    "sample/*"
+  ],
+  "dependencies": {
+    "ionic": "^1.2.4"
+  }
+}

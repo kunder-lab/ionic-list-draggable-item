@@ -1,0 +1,56 @@
+<html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ionic List Directive</title>
+   
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+
+    <script src="../js/draggableItemList.js"></script>
+    <script src="app.js"></script>
+
+    <style type="text/css">
+      body {
+        cursor: url('http://ionicframework.com/img/finger.png'), auto;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="MyCtrl">
+    
+    <ion-header-bar class="bar-positive">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+      </div>
+      <h1 class="title">Ionic List with Draggable Items</h1>
+      <div class="buttons">
+        <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+            Reorder
+        </button>
+      </div>
+    </ion-header-bar>
+
+    <ion-content>
+
+      <list-draggable-item show-delete="data.showDelete" show-reorder="data.showReorder">
+        <ion-item ng-repeat="item in items" item="item" href="#/item/{{item.id}}" class="item-remove-animate">
+          Item {{ item.id }}
+          <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)">
+          </ion-delete-button>
+          <ion-option-button class="button-assertive" ng-click="edit(item)">
+            Edit
+          </ion-option-button>
+          <ion-option-button class="button-calm" ng-click="share(item)">
+            Share
+          </ion-option-button>
+          <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+        </ion-item>
+
+      </list-draggable-item>
+
+    </ion-content>
+      
+  </body>
+</html>
